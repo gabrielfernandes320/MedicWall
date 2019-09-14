@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lab002a\\Desktop\\MedicWall\\MedicWall\\MedicWall.csproj": {}
+    "C:\\Users\\bruno\\Desktop\\MedicWall\\MedicWall\\MedicWall.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lab002a\\Desktop\\MedicWall\\MedicWall\\MedicWall.csproj": {
+    "C:\\Users\\bruno\\Desktop\\MedicWall\\MedicWall\\MedicWall.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lab002a\\Desktop\\MedicWall\\MedicWall\\MedicWall.csproj",
+        "projectUniqueName": "C:\\Users\\bruno\\Desktop\\MedicWall\\MedicWall\\MedicWall.csproj",
         "projectName": "MedicWall",
-        "projectPath": "C:\\Users\\lab002a\\Desktop\\MedicWall\\MedicWall\\MedicWall.csproj",
-        "packagesPath": "C:\\Users\\lab002a\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lab002a\\Desktop\\MedicWall\\MedicWall\\obj\\",
+        "projectPath": "C:\\Users\\bruno\\Desktop\\MedicWall\\MedicWall\\MedicWall.csproj",
+        "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bruno\\Desktop\\MedicWall\\MedicWall\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\lab002a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[2.1.1, )"
             }
           },
           "imports": [

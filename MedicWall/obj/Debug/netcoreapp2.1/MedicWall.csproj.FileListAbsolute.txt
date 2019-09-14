@@ -9,3 +9,18 @@ C:\Users\bruno\Desktop\MedicWall\MedicWall\obj\Debug\netcoreapp2.1\MedicWall.Raz
 C:\Users\bruno\Desktop\MedicWall\MedicWall\obj\Debug\netcoreapp2.1\MedicWall.AssemblyInfoInputs.cache
 C:\Users\bruno\Desktop\MedicWall\MedicWall\obj\Debug\netcoreapp2.1\MedicWall.AssemblyInfo.cs
 C:\Users\bruno\Desktop\MedicWall\MedicWall\obj\Debug\netcoreapp2.1\MedicWall.RazorTargetAssemblyInfo.cache
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\bin\Debug\netcoreapp2.1\MedicWall.deps.json
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\bin\Debug\netcoreapp2.1\MedicWall.runtimeconfig.json
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\bin\Debug\netcoreapp2.1\MedicWall.runtimeconfig.dev.json
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\bin\Debug\netcoreapp2.1\MedicWall.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\bin\Debug\netcoreapp2.1\MedicWall.pdb
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\bin\Debug\netcoreapp2.1\MedicWall.Views.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\obj\Debug\netcoreapp2.1\MedicWall.csproj.CoreCompileInputs.cache
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\obj\Debug\netcoreapp2.1\MedicWall.RazorAssemblyInfo.cache
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\obj\Debug\netcoreapp2.1\MedicWall.RazorAssemblyInfo.cs
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\obj\Debug\netcoreapp2.1\MedicWall.AssemblyInfoInputs.cache
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\obj\Debug\netcoreapp2.1\MedicWall.AssemblyInfo.cs
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\obj\Debug\netcoreapp2.1\MedicWall.RazorTargetAssemblyInfo.cache
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\obj\Debug\netcoreapp2.1\MedicWall.dll
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\obj\Debug\netcoreapp2.1\MedicWall.pdb
+C:\Users\gabri\OneDrive\Área de Trabalho\MedicWall\MedicWall\obj\Debug\netcoreapp2.1\MedicWall.csproj.CopyComplete

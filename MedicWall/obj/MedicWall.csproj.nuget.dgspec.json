@@ -1,24 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bruno\\Desktop\\MedicWall\\MedicWall\\MedicWall.csproj": {}
+    "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\MedicWall\\MedicWall\\MedicWall.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bruno\\Desktop\\MedicWall\\MedicWall\\MedicWall.csproj": {
+    "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\MedicWall\\MedicWall\\MedicWall.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\Desktop\\MedicWall\\MedicWall\\MedicWall.csproj",
+        "projectUniqueName": "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\MedicWall\\MedicWall\\MedicWall.csproj",
         "projectName": "MedicWall",
-        "projectPath": "C:\\Users\\bruno\\Desktop\\MedicWall\\MedicWall\\MedicWall.csproj",
-        "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\Desktop\\MedicWall\\MedicWall\\obj\\",
+        "projectPath": "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\MedicWall\\MedicWall\\MedicWall.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gabri\\OneDrive\\Área de Trabalho\\MedicWall\\MedicWall\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
@@ -53,9 +55,14 @@
               "version": "[2.1.2, )"
             },
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.1.9, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",

@@ -1,0 +1,14 @@
+C:\Users\gabri\source\repos\medicwall\medicwall\bin\Debug\netcoreapp2.2\medicwall.deps.json
+C:\Users\gabri\source\repos\medicwall\medicwall\bin\Debug\netcoreapp2.2\medicwall.runtimeconfig.json
+C:\Users\gabri\source\repos\medicwall\medicwall\bin\Debug\netcoreapp2.2\medicwall.runtimeconfig.dev.json
+C:\Users\gabri\source\repos\medicwall\medicwall\bin\Debug\netcoreapp2.2\medicwall.dll
+C:\Users\gabri\source\repos\medicwall\medicwall\obj\Debug\netcoreapp2.2\medicwall.csprojAssemblyReference.cache
+C:\Users\gabri\source\repos\medicwall\medicwall\obj\Debug\netcoreapp2.2\medicwall.csproj.CoreCompileInputs.cache
+C:\Users\gabri\source\repos\medicwall\medicwall\obj\Debug\netcoreapp2.2\medicwall.RazorAssemblyInfo.cache
+C:\Users\gabri\source\repos\medicwall\medicwall\obj\Debug\netcoreapp2.2\medicwall.RazorAssemblyInfo.cs
+C:\Users\gabri\source\repos\medicwall\medicwall\obj\Debug\netcoreapp2.2\medicwall.AssemblyInfoInputs.cache
+C:\Users\gabri\source\repos\medicwall\medicwall\obj\Debug\netcoreapp2.2\medicwall.AssemblyInfo.cs
+C:\Users\gabri\source\repos\medicwall\medicwall\obj\Debug\netcoreapp2.2\medicwall.RazorTargetAssemblyInfo.cache
+C:\Users\gabri\source\repos\medicwall\medicwall\bin\Debug\netcoreapp2.2\medicwall.pdb
+C:\Users\gabri\source\repos\medicwall\medicwall\obj\Debug\netcoreapp2.2\medicwall.dll
+C:\Users\gabri\source\repos\medicwall\medicwall\obj\Debug\netcoreapp2.2\medicwall.pdb

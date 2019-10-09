@@ -259,13 +259,19 @@ namespace medicwall.Models
                     .HasColumnName("id")
                     .HasDefaultValueSql("nextval('medicwall.document_id_seq'::regclass)");
 
-                entity.Property(e => e.Cpf).HasColumnName("cpf");
+                entity.Property(e => e.Cpf)
+                    .IsRequired()
+                    .HasColumnName("cpf")
+                    .HasColumnType("character varying");
 
                 entity.Property(e => e.Crm)
                     .HasColumnName("crm")
                     .HasColumnType("character varying");
 
-                entity.Property(e => e.Rg).HasColumnName("rg");
+                entity.Property(e => e.Rg)
+                    .IsRequired()
+                    .HasColumnName("rg")
+                    .HasColumnType("character varying");
             });
 
             modelBuilder.Entity<Expertise>(entity =>
@@ -461,13 +467,11 @@ namespace medicwall.Models
                 entity.HasOne(d => d.FkConfmedicoNavigation)
                     .WithOne(p => p.User)
                     .HasForeignKey<User>(d => d.FkConfmedico)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("user_conf_medic_fk");
 
                 entity.HasOne(d => d.FkConfpacienteNavigation)
                     .WithOne(p => p.User)
                     .HasForeignKey<User>(d => d.FkConfpaciente)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("user_conf_patient_fk");
 
                 entity.HasOne(d => d.FkContactNavigation)

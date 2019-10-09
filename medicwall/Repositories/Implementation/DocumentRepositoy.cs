@@ -8,34 +8,28 @@ using System.Threading.Tasks;
 
 namespace medicwall.Repositories.Implementation
 {
-    public class UserRepository : IMedicwallRepository<User>
+    public class DocumentRepository : IMedicwallRepository<Document>
     {
 
             readonly medicwallContext _medicwallContext;
 
-            public UserRepository(medicwallContext context)
+            public DocumentRepository(medicwallContext context)
             {
                 _medicwallContext = context;
             }
 
-        public IEnumerable<User> GetAll()
+        public IEnumerable<Document> GetAll()
         {
-                return _medicwallContext.User
-                    .Include(x => x.FkAdressNavigation.FkCityNavigation)
-                    .Include(x => x.FkConfmedicoNavigation.FkEspecNavigation)
-                    .Include(x => x.FkConfpacienteNavigation)
-                    .Include(x => x.FkContactNavigation)
-                    .Include(x => x.FkDocumentNavigation)
-                    .ToList();
+                return _medicwallContext.Document.ToList();
         }
 
-        public async Task<User> Get(int id)
+        public async Task<Document> Get(int id)
         {
-            var product = await _medicwallContext.User.FindAsync(id);
+            var product = await _medicwallContext.Document.FindAsync(id);
             return product;
         }
 
-        public object Update(int id, User product)
+        public object Update(int id, Document product)
         {
             _medicwallContext.Entry(product).State = EntityState.Modified;
 
@@ -59,7 +53,7 @@ namespace medicwall.Repositories.Implementation
 
         }
 
-        public async Task<User> Update(int id, object obj)
+        public async Task<Document> Update(int id, object obj)
         {
             _medicwallContext.Entry(obj).State = EntityState.Modified;
           
@@ -78,13 +72,12 @@ namespace medicwall.Repositories.Implementation
 
         public bool Exists(int id)
         {
-            return _medicwallContext.User.Any(e => e.Id == id);
+            return _medicwallContext.Document.Any(e => e.Id == id);
         }
 
-        public async Task<User> Add(object obj)
+        public async Task<Document> Add(object obj)
         {
-            _medicwallContext.User.Add((User)obj);
-
+            _medicwallContext.Document.Add((Document)obj);
 
             try
             {
@@ -95,12 +88,12 @@ namespace medicwall.Repositories.Implementation
                 Console.WriteLine(ex.Message);
             }
 
-            return (User)obj;
+            return (Document)obj;
         }
 
-        public async Task<User> Delete(object obj)
+        public async Task<Document> Delete(object obj)
         {
-            _medicwallContext.User.Remove((User)obj);
+            _medicwallContext.Document.Remove((Document)obj);
 
             try
             {
@@ -111,7 +104,7 @@ namespace medicwall.Repositories.Implementation
                 throw;
             }
 
-            return (User)obj;
+            return (Document)obj;
         }
 
       

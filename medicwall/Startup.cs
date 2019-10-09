@@ -36,7 +36,10 @@ namespace medicwall
                     var resolver = Options.SerializerSettings.ContractResolver;
                     if (resolver != null)
                         (resolver as DefaultContractResolver).NamingStrategy = null;
-                });
+                })
+                .AddJsonOptions(options => 
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                );
 
             services.AddDbContext<medicwallContext>(op => op.UseNpgsql("Host=localhost;Database=medicwall;Username=postgres;Password=admin"));
             services.AddScoped<IMedicwallRepository<Adress>, AdressRepository>();

@@ -23,8 +23,8 @@ namespace medicwall.Models
         public int FkContact { get; set; }
         public int FkDocument { get; set; }
         public int FkAdress { get; set; }
-        public int FkConfpaciente { get; set; }
-        public int FkConfmedico { get; set; }
+        public int? FkConfpaciente { get; set; }
+        public int? FkConfmedico { get; set; }
         public DateTime RegisterDate { get; set; }
 
         public virtual Adress FkAdressNavigation { get; set; }

@@ -25,13 +25,13 @@ namespace medicwall.Repositories.Implementation
 
         public async Task<Adress> Get(int id)
         {
-            var product = await _medicwallContext.Adress.FindAsync(id);
-            return product;
+            var adress = await _medicwallContext.Adress.FindAsync(id);
+            return adress;
         }
 
-        public object Update(int id, Adress product)
+        public object Update(int id, Adress adress)
         {
-            _medicwallContext.Entry(product).State = EntityState.Modified;
+            _medicwallContext.Entry(adress).State = EntityState.Modified;
 
             try
             {
@@ -49,7 +49,7 @@ namespace medicwall.Repositories.Implementation
                 }
             }
 
-            return product;
+            return adress;
 
         }
 

@@ -8,36 +8,30 @@ using System.Threading.Tasks;
 
 namespace medicwall.Repositories.Implementation
 {
-    public class UserRepository : IMedicwallRepository<User>
+    public class ExpertiseRepository : IMedicwallRepository<Expertise>
     {
 
             readonly medicwallContext _medicwallContext;
 
-            public UserRepository(medicwallContext context)
+            public ExpertiseRepository(medicwallContext context)
             {
                 _medicwallContext = context;
             }
 
-        public IEnumerable<User> GetAll()
+        public IEnumerable<Expertise> GetAll()
         {
-                return _medicwallContext.User
-                    .Include(x => x.FkAdressNavigation.FkCityNavigation)
-                    .Include(x => x.FkConfmedicoNavigation.FkEspecNavigation)
-                    .Include(x => x.FkConfpacienteNavigation)
-                    .Include(x => x.FkContactNavigation)
-                    .Include(x => x.FkDocumentNavigation)
-                    .ToList();
+                return _medicwallContext.Expertise.ToList();
         }
 
-        public async Task<User> Get(int id)
+        public async Task<Expertise> Get(int id)
         {
-            var user = await _medicwallContext.User.FindAsync(id);
-            return user;
+            var expertise = await _medicwallContext.Expertise.FindAsync(id);
+            return expertise;
         }
 
-        public object Update(int id, User user)
+        public object Update(int id, Expertise expertise)
         {
-            _medicwallContext.Entry(user).State = EntityState.Modified;
+            _medicwallContext.Entry(expertise).State = EntityState.Modified;
 
             try
             {
@@ -55,11 +49,11 @@ namespace medicwall.Repositories.Implementation
                 }
             }
 
-            return user;
+            return expertise;
 
         }
 
-        public async Task<User> Update(int id, object obj)
+        public async Task<Expertise> Update(int id, object obj)
         {
             _medicwallContext.Entry(obj).State = EntityState.Modified;
           
@@ -78,29 +72,12 @@ namespace medicwall.Repositories.Implementation
 
         public bool Exists(int id)
         {
-            return _medicwallContext.User.Any(e => e.Id == id);
+            return _medicwallContext.Expertise.Any(e => e.Id == id);
         }
 
-        public async Task<User> Add(object obj)
+        public async Task<Expertise> Add(object obj)
         {
-            _medicwallContext.User.Add((User)obj);
-
-
-            try
-            {
-                await _medicwallContext.SaveChangesAsync();
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            return (User)obj;
-        }
-
-        public async Task<User> Delete(object obj)
-        {
-            _medicwallContext.User.Remove((User)obj);
+            _medicwallContext.Expertise.Add((Expertise)obj);
 
             try
             {
@@ -111,7 +88,23 @@ namespace medicwall.Repositories.Implementation
                 throw;
             }
 
-            return (User)obj;
+            return (Expertise)obj;
+        }
+
+        public async Task<Expertise> Delete(object obj)
+        {
+            _medicwallContext.Expertise.Remove((Expertise)obj);
+
+            try
+            {
+                await _medicwallContext.SaveChangesAsync();
+            }
+            catch
+            {
+                throw;
+            }
+
+            return (Expertise)obj;
         }
 
       

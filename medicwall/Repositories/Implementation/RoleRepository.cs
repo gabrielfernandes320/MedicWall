@@ -8,36 +8,30 @@ using System.Threading.Tasks;
 
 namespace medicwall.Repositories.Implementation
 {
-    public class UserRepository : IMedicwallRepository<User>
+    public class RoleRepository : IMedicwallRepository<Role>
     {
 
             readonly medicwallContext _medicwallContext;
 
-            public UserRepository(medicwallContext context)
+            public RoleRepository(medicwallContext context)
             {
                 _medicwallContext = context;
             }
 
-        public IEnumerable<User> GetAll()
+        public IEnumerable<Role> GetAll()
         {
-                return _medicwallContext.User
-                    .Include(x => x.FkAdressNavigation.FkCityNavigation)
-                    .Include(x => x.FkConfmedicoNavigation.FkEspecNavigation)
-                    .Include(x => x.FkConfpacienteNavigation)
-                    .Include(x => x.FkContactNavigation)
-                    .Include(x => x.FkDocumentNavigation)
-                    .ToList();
+                return _medicwallContext.Role.ToList();
         }
 
-        public async Task<User> Get(int id)
+        public async Task<Role> Get(int id)
         {
-            var user = await _medicwallContext.User.FindAsync(id);
-            return user;
+            var role = await _medicwallContext.Role.FindAsync(id);
+            return role;
         }
 
-        public object Update(int id, User user)
+        public object Update(int id, Role role)
         {
-            _medicwallContext.Entry(user).State = EntityState.Modified;
+            _medicwallContext.Entry(role).State = EntityState.Modified;
 
             try
             {
@@ -55,11 +49,11 @@ namespace medicwall.Repositories.Implementation
                 }
             }
 
-            return user;
+            return role;
 
         }
 
-        public async Task<User> Update(int id, object obj)
+        public async Task<Role> Update(int id, object obj)
         {
             _medicwallContext.Entry(obj).State = EntityState.Modified;
           
@@ -78,29 +72,12 @@ namespace medicwall.Repositories.Implementation
 
         public bool Exists(int id)
         {
-            return _medicwallContext.User.Any(e => e.Id == id);
+            return _medicwallContext.Role.Any(e => e.Id == id);
         }
 
-        public async Task<User> Add(object obj)
+        public async Task<Role> Add(object obj)
         {
-            _medicwallContext.User.Add((User)obj);
-
-
-            try
-            {
-                await _medicwallContext.SaveChangesAsync();
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-            return (User)obj;
-        }
-
-        public async Task<User> Delete(object obj)
-        {
-            _medicwallContext.User.Remove((User)obj);
+            _medicwallContext.Role.Add((Role)obj);
 
             try
             {
@@ -111,7 +88,23 @@ namespace medicwall.Repositories.Implementation
                 throw;
             }
 
-            return (User)obj;
+            return (Role)obj;
+        }
+
+        public async Task<Role> Delete(object obj)
+        {
+            _medicwallContext.Role.Remove((Role)obj);
+
+            try
+            {
+                await _medicwallContext.SaveChangesAsync();
+            }
+            catch
+            {
+                throw;
+            }
+
+            return (Role)obj;
         }
 
       

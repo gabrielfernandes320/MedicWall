@@ -40,6 +40,7 @@ namespace medicwall
 
             services.AddDbContext<medicwallContext>(op => op.UseNpgsql("Host=localhost;Database=medicwall;Username=postgres;Password=admin"));
             services.AddScoped<IMedicwallRepository<Adress>, AdressRepository>();
+            services.AddScoped<IMedicwallRepository<User>, UserRepository>();
 
         }
 

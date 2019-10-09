@@ -21,83 +21,79 @@ namespace medicwall.Controllers
                 _adressRepository = adressRepository;
             }
 
-            // GET: api/adresses/GetAllAdresss
+            // GET: api/adresses
             [HttpGet]
-            [Route("GetAllAdresss")]
             public ActionResult<IEnumerable<Adress>> GetAllAdresss()
             {
                 IEnumerable<Adress> adress = _adressRepository.GetAll();
                 return Ok(adress);
             }
 
-            // GET: api/adresses/GetAdress/1
-            [HttpGet("GetAdress/{id}")]
-            //[Route("GetAdress")]
+            // GET: api/adresses/1
+            [HttpGet("{id}")]
             public async Task<ActionResult<Adress>> GetAdress(int id)
             {
-                var product = await _adressRepository.Get(id);
-                if (product == null)
+                var adress = await _adressRepository.Get(id);
+                if (adress == null)
                 {
                     return NotFound();
                 }
 
-                return Ok(product);
+                return Ok(adress);
             }
 
-        //api/adresses/UpdateAdress/1
-        [HttpPut("UpdateAdress/{id}")]
-            public async Task<ActionResult<Adress>> UpdateAdressAsync(int id, Adress product)
+            //api/adresses/1
+            [HttpPut("{id}")]
+            public async Task<ActionResult<Adress>> UpdateAdressAsync(int id, Adress adress)
             {
 
-                if (id != product.Id)
+                if (id != adress.Id)
                 {
                     return BadRequest();
                 }
 
-                var updateReturn = await _adressRepository.Update(id, product);
+                var updateReturn = await _adressRepository.Update(id, adress);
 
                 if (updateReturn != null)
                 {
-                    return Ok(product);
+                    return Ok(adress);
                 }
 
                 return BadRequest();
             }
 
-        //api/adresses/AddAdress
-        [HttpPost]
-            [Route("AddAdress")]
-            public async Task<ActionResult<Adress>> AddAdressAsync(Adress product)
+            //api/adresses
+            [HttpPost]
+            public async Task<ActionResult<Adress>> AddAdressAsync(Adress adress)
             {
-                var addReturn = await _adressRepository.Add(product);
+                var addReturn = await _adressRepository.Add(adress);
 
                 if (addReturn != null)
                 {
-                    return CreatedAtAction("GetAdress", new { id = product.Id }, product);
+                    return CreatedAtAction("GetAdress", new { id = adress.Id }, adress);
                 }
 
                 return BadRequest();
             }
 
-        // GET: api/adresses/DeleteAdress/1
-        [HttpDelete("DeleteAdress/{id}")]
+            // DELETE: api/adresses/1
+            [HttpDelete("{id}")]
             public async Task<ActionResult<Adress>> DeleteAdressAsync(int id)
             {
-                var product = await _adressRepository.Get(id);
-                if (product == null)
+                var adress = await _adressRepository.Get(id);
+                if (adress == null)
                 {
                     return NotFound();
                 }
 
-                var deleteReturn = _adressRepository.Delete(product);
+                var deleteReturn = _adressRepository.Delete(adress);
 
                 if (deleteReturn != null)
                 {
-                    return CreatedAtAction("GetAdress", new { id = product.Id }, product);
+                    return CreatedAtAction("GetAdress", new { id = adress.Id }, adress);
                 }
 
                 return BadRequest();
-
 
             }
         }

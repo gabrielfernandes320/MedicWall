@@ -8,28 +8,28 @@ using System.Threading.Tasks;
 
 namespace medicwall.Repositories.Implementation
 {
-    public class AdressRepository : IMedicwallRepository<Adress>
+    public class UserRepository : IMedicwallRepository<User>
     {
 
             readonly medicwallContext _medicwallContext;
 
-            public AdressRepository(medicwallContext context)
+            public UserRepository(medicwallContext context)
             {
                 _medicwallContext = context;
             }
 
-        public IEnumerable<Adress> GetAll()
+        public IEnumerable<User> GetAll()
         {
-                return _medicwallContext.Adress.ToList();
+                return _medicwallContext.User.ToList();
         }
 
-        public async Task<Adress> Get(int id)
+        public async Task<User> Get(int id)
         {
-            var product = await _medicwallContext.Adress.FindAsync(id);
+            var product = await _medicwallContext.User.FindAsync(id);
             return product;
         }
 
-        public object Update(int id, Adress product)
+        public object Update(int id, User product)
         {
             _medicwallContext.Entry(product).State = EntityState.Modified;
 
@@ -53,7 +53,7 @@ namespace medicwall.Repositories.Implementation
 
         }
 
-        public async Task<Adress> Update(int id, object obj)
+        public async Task<User> Update(int id, object obj)
         {
             _medicwallContext.Entry(obj).State = EntityState.Modified;
           
@@ -72,12 +72,12 @@ namespace medicwall.Repositories.Implementation
 
         public bool Exists(int id)
         {
-            return _medicwallContext.Adress.Any(e => e.Id == id);
+            return _medicwallContext.User.Any(e => e.Id == id);
         }
 
-        public async Task<Adress> Add(object obj)
+        public async Task<User> Add(object obj)
         {
-            _medicwallContext.Adress.Add((Adress)obj);
+            _medicwallContext.User.Add((User)obj);
 
             try
             {
@@ -88,12 +88,12 @@ namespace medicwall.Repositories.Implementation
                 throw;
             }
 
-            return (Adress)obj;
+            return (User)obj;
         }
 
-        public async Task<Adress> Delete(object obj)
+        public async Task<User> Delete(object obj)
         {
-            _medicwallContext.Adress.Remove((Adress)obj);
+            _medicwallContext.User.Remove((User)obj);
 
             try
             {
@@ -104,7 +104,7 @@ namespace medicwall.Repositories.Implementation
                 throw;
             }
 
-            return (Adress)obj;
+            return (User)obj;
         }
 
       

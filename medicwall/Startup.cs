@@ -44,6 +44,15 @@ namespace medicwall
             services.AddDbContext<medicwallContext>(op => op.UseNpgsql("Host=localhost;Database=medicwall;Username=postgres;Password=admin"));
             services.AddScoped<IMedicwallRepository<Adress>, AdressRepository>();
             services.AddScoped<IMedicwallRepository<User>, UserRepository>();
+            services.AddScoped<IMedicwallRepository<ConfDoctor>, ConfDoctorRepository>();
+            services.AddScoped<IMedicwallRepository<Document>, DocumentRepository>();
+            services.AddScoped<IMedicwallRepository<ConfPatient>, ConfPatientRepository>();
+            services.AddScoped<IMedicwallRepository<Contact>, ContactRepository>();
+            services.AddScoped<IMedicwallRepository<DocsecRel>, DocsecRelRepository>();
+            services.AddScoped<IMedicwallRepository<Expertise>, ExpertiseRepository>();
+            services.AddScoped<IMedicwallRepository<Schedule>, ScheduleRepository>();
+            services.AddScoped<IMedicwallRepository<City>, CityRepository>();
+            services.AddScoped<IMedicwallRepository<Role>, RoleRepository>();
 
         }
 

@@ -472,7 +472,7 @@ namespace medicwall.Models
                 entity.HasOne(d => d.FkConfpacienteNavigation)
                     .WithOne(p => p.User)
                     .HasForeignKey<User>(d => d.FkConfpaciente)
-                    .HasConstraintName("user_conf_patient_fk");
+                    .HasConstraintName("user_conf_patient_id_fk");
 
                 entity.HasOne(d => d.FkContactNavigation)
                     .WithOne(p => p.User)

@@ -85,7 +85,6 @@ namespace medicwall.Repositories.Implementation
         {
             _medicwallContext.User.Add((User)obj);
 
-
             try
             {
                 await _medicwallContext.SaveChangesAsync();

@@ -8,28 +8,28 @@ using System.Threading.Tasks;
 
 namespace medicwall.Repositories.Implementation
 {
-    public class DocSecRelRepository : IMedicwallRepository<DocSecRel>
+    public class DocsecRelRepository : IMedicwallRepository<DocsecRel>
     {
 
             readonly medicwallContext _medicwallContext;
 
-            public DocSecRelRepository(medicwallContext context)
+            public DocsecRelRepository(medicwallContext context)
             {
                 _medicwallContext = context;
             }
 
-        public IEnumerable<DocSecRel> GetAll()
+        public IEnumerable<DocsecRel> GetAll()
         {
-                return _medicwallContext.DocSecRel.ToList();
+                return _medicwallContext.DocsecRel.ToList();
         }
 
-        public async Task<DocSecRel> Get(int id)
+        public async Task<DocsecRel> Get(int id)
         {
-            var docSecRel = await _medicwallContext.DocSecRel.FindAsync(id);
+            var docSecRel = await _medicwallContext.DocsecRel.FindAsync(id);
             return docSecRel;
         }
 
-        public object Update(int id, DocSecRel docSecRel)
+        public object Update(int id, DocsecRel docSecRel)
         {
             _medicwallContext.Entry(docSecRel).State = EntityState.Modified;
 
@@ -53,7 +53,7 @@ namespace medicwall.Repositories.Implementation
 
         }
 
-        public async Task<DocSecRel> Update(int id, object obj)
+        public async Task<DocsecRel> Update(int id, object obj)
         {
             _medicwallContext.Entry(obj).State = EntityState.Modified;
           
@@ -72,12 +72,12 @@ namespace medicwall.Repositories.Implementation
 
         public bool Exists(int id)
         {
-            return _medicwallContext.DocSecRel.Any(e => e.Id == id);
+            return _medicwallContext.DocsecRel.Any(e => e.Id == id);
         }
 
-        public async Task<DocSecRel> Add(object obj)
+        public async Task<DocsecRel> Add(object obj)
         {
-            _medicwallContext.DocSecRel.Add((DocSecRel)obj);
+            _medicwallContext.DocsecRel.Add((DocsecRel)obj);
 
             try
             {
@@ -88,12 +88,12 @@ namespace medicwall.Repositories.Implementation
                 throw;
             }
 
-            return (DocSecRel)obj;
+            return (DocsecRel)obj;
         }
 
-        public async Task<DocSecRel> Delete(object obj)
+        public async Task<DocsecRel> Delete(object obj)
         {
-            _medicwallContext.DocSecRel.Remove((DocSecRel)obj);
+            _medicwallContext.DocsecRel.Remove((DocsecRel)obj);
 
             try
             {
@@ -104,7 +104,7 @@ namespace medicwall.Repositories.Implementation
                 throw;
             }
 
-            return (DocSecRel)obj;
+            return (DocsecRel)obj;
         }
 
       

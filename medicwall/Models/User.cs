@@ -12,7 +12,7 @@ namespace medicwall.Models
             ScheduleDoctor = new HashSet<Schedule>();
             SchedulePatient = new HashSet<Schedule>();
         }
-
+        
         public int Id { get; set; }
         public int RoleId { get; set; }
         public string Email { get; set; }

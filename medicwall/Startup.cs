@@ -53,6 +53,7 @@ namespace medicwall
             services.AddScoped<IMedicwallRepository<Schedule>, ScheduleRepository>();
             services.AddScoped<IMedicwallRepository<City>, CityRepository>();
             services.AddScoped<IMedicwallRepository<Role>, RoleRepository>();
+            services.AddScoped<UserRepository>();
 
         }
 

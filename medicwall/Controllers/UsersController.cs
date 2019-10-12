@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using medicwall.Models;
 using medicwall.Repositories.Contract;
+using medicwall.Repositories.Implementation;
 
 namespace medicwall.Controllers
 {
@@ -14,9 +15,9 @@ namespace medicwall.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly IMedicwallRepository<User> _userRepository;
+        private readonly UserRepository _userRepository;
 
-        public UsersController(IMedicwallRepository<User> userRepository)
+        public UsersController(UserRepository userRepository)
         {
             _userRepository = userRepository;
         }
@@ -38,8 +39,17 @@ namespace medicwall.Controllers
             {
                 return NotFound();
             }
-
             return Ok(user);
+        }
+
+        // GET: api/users/DayAvaiableAppointments/1
+        [HttpGet("DayAvaiableAppointments/{id}")]
+        public async Task<ActionResult<User>> GetDayAvaiableAppointments(int id, DateTime day)
+        {
+           
+            List<DateTime> avaiableAppointments = await _userRepository.GetDayAvaiableAppointments(id, day);
+
+            return Ok(avaiableAppointments);
         }
 
         //api/users/1

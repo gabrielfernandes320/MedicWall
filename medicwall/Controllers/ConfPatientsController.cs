@@ -12,85 +12,85 @@ namespace medicwall.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class ConfPatientsController : ControllerBase
     {
-        private readonly IMedicwallRepository<User> _userRepository;
+        private readonly IMedicwallRepository<ConfPatient> _confPatientRepository;
 
-        public UsersController(IMedicwallRepository<User> userRepository)
+        public ConfPatientsController(IMedicwallRepository<ConfPatient> confPatientRepository)
         {
-            _userRepository = userRepository;
+            _confPatientRepository = confPatientRepository;
         }
 
-        // GET: api/users
+        // GET: api/confPatients
         [HttpGet]
-        public ActionResult<IEnumerable<User>> GetAllUsers()
+        public ActionResult<IEnumerable<ConfPatient>> GetAllConfPatients()
         {
-            IEnumerable<User> user = _userRepository.GetAll();
-            return Ok(user);
+            IEnumerable<ConfPatient> confPatient = _confPatientRepository.GetAll();
+            return Ok(confPatient);
         }
 
-        // GET: api/users/1
+        // GET: api/confPatients/1
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<ConfPatient>> GetConfPatient(int id)
         {
-            var user = await _userRepository.Get(id);
-            if (user == null)
+            var confPatient = await _confPatientRepository.Get(id);
+            if (confPatient == null)
             {
                 return NotFound();
             }
 
-            return Ok(user);
+            return Ok(confPatient);
         }
 
-        //api/users/1
+        //api/confPatients/1
         [HttpPut("{id}")]
-        public async Task<ActionResult<User>> UpdateUserAsync(int id, User user)
+        public async Task<ActionResult<ConfPatient>> UpdateConfPatientAsync(int id, ConfPatient confPatient)
         {
 
-            if (id != user.Id)
+            if (id != confPatient.Id)
             {
                 return BadRequest();
             }
 
-            var updateReturn = await _userRepository.Update(id, user);
+            var updateReturn = await _confPatientRepository.Update(id, confPatient);
 
             if (updateReturn != null)
             {
-                return Ok(user);
+                return Ok(confPatient);
             }
 
             return BadRequest();
         }
 
-        //api/users
+        //api/confPatients
         [HttpPost]
-        public async Task<ActionResult<User>> AddUserAsync(User user)
+        public async Task<ActionResult<ConfPatient>> AddConfPatientAsync(ConfPatient confPatient)
         {
-            var addReturn = await _userRepository.Add(user);
+            var addReturn = await _confPatientRepository.Add(confPatient);
 
             if (addReturn != null)
             {
-                return CreatedAtAction("GetUser", new { id = user.Id }, user);
+                return CreatedAtAction("GetConfPatient", new { id = confPatient.Id }, confPatient);
             }
 
             return BadRequest();
         }
 
-        // DELETE: api/users/1
+        // DELETE: api/confPatients/1
         [HttpDelete("{id}")]
-        public async Task<ActionResult<User>> DeleteUserAsync(int id)
+        public async Task<ActionResult<ConfPatient>> DeleteConfPatientAsync(int id)
         {
-            var user = await _userRepository.Get(id);
-            if (user == null)
+            var confPatient = await _confPatientRepository.Get(id);
+            if (confPatient == null)
             {
                 return NotFound();
             }
 
-            var deleteReturn = _userRepository.Delete(user);
+            var deleteReturn = _confPatientRepository.Delete(confPatient);
 
             if (deleteReturn != null)
             {
-                return CreatedAtAction("GetUser", new { id = user.Id }, user);
+                return CreatedAtAction("GetConfPatient", new { id = confPatient.Id }, confPatient);
             }
 
             return BadRequest();

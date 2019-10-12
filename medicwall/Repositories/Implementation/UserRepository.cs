@@ -35,30 +35,6 @@ namespace medicwall.Repositories.Implementation
             return user;
         }
 
-        public object Update(int id, User user)
-        {
-            _medicwallContext.Entry(user).State = EntityState.Modified;
-
-            try
-            {
-                _medicwallContext.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!Exists(id))
-                {
-                    return null;
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return user;
-
-        }
-
         public async Task<User> Update(int id, object obj)
         {
             _medicwallContext.Entry(obj).State = EntityState.Modified;
@@ -113,6 +89,38 @@ namespace medicwall.Repositories.Implementation
             return (User)obj;
         }
 
-      
+        public async Task<List<DateTime>> GetDayAvaiableAppointments(int id, DateTime day)
+        {
+            var user = await Get(id);
+            var confDoctor = await _medicwallContext.ConfDoctor.FindAsync(user.FkConfmedico);
+            var avaiableAppointmentsList = new List<DateTime>();
+            IEnumerable<Schedule> occupedAppointments = _medicwallContext.Schedule.Where(x => x.AppointmentDate == day);
+
+
+            DateTime dt = new DateTime(day.Year, day.Day, day.Month);
+            DateTime StartTime = dt + confDoctor.StartTime;
+            DateTime EndTime = dt +  confDoctor.EndTime;
+            while (StartTime != EndTime)
+            {
+                double minuts = +confDoctor.ConsultTime;
+                StartTime = StartTime.AddMinutes(minuts);
+                avaiableAppointmentsList.Add(StartTime);
+            }
+
+            for (int i = 0; i < avaiableAppointmentsList.Count -1; i++)
+            {
+                for (int j = 0; j < occupedAppointments.Count - 1; j++)
+                {
+                    occupedAppointments
+                }
+
+            }
+            
+            return avaiableAppointmentsList;
+
+
+        }
+
+
     }
 }

@@ -19,6 +19,5 @@ namespace medicwall.Repositories.Contract
         Task<T> Add(object obj);
 
         Task<T> Delete(object obj);
-
     }
 }

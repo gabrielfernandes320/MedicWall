@@ -89,13 +89,12 @@ namespace medicwall.Repositories.Implementation
             return (User)obj;
         }
 
-        public async Task<List<DateTime>> GetDayAvaiableAppointments(int id, DateTime day)
+        public async Task<List<DateTime?>> GetDayAvaiableAppointments(int id, DateTime day)
         {
             var user = await Get(id);
             var confDoctor = await _medicwallContext.ConfDoctor.FindAsync(user.FkConfmedico);
-            var avaiableAppointmentsList = new List<DateTime>();
-            IEnumerable<Schedule> occupedAppointments = _medicwallContext.Schedule.Where(x => x.AppointmentDate == day);
-
+            var availableAppointmentsList = new List<DateTime?>();
+            IEnumerable<Schedule> occupedAppointments = _medicwallContext.Schedule.Where(x => x.AppointmentDate == day && x.DoctorId == id);
 
             DateTime dt = new DateTime(day.Year, day.Day, day.Month);
             DateTime StartTime = dt + confDoctor.StartTime;
@@ -104,23 +103,15 @@ namespace medicwall.Repositories.Implementation
             {
                 double minuts = +confDoctor.ConsultTime;
                 StartTime = StartTime.AddMinutes(minuts);
-                avaiableAppointmentsList.Add(StartTime);
+                availableAppointmentsList.Add(StartTime);
             }
 
-            for (int i = 0; i < avaiableAppointmentsList.Count -1; i++)
+            foreach (var item in occupedAppointments)
             {
-                for (int j = 0; j < occupedAppointments.Count - 1; j++)
-                {
-                    occupedAppointments
-                }
-
+                availableAppointmentsList.RemoveAll(x => x == dt +item.StartTime);
             }
-            
-            return avaiableAppointmentsList;
 
-
+            return availableAppointmentsList;
         }
-
-
     }
 }

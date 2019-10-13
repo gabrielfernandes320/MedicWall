@@ -47,7 +47,7 @@ namespace medicwall.Controllers
         public async Task<ActionResult<User>> GetDayAvaiableAppointments(int id, DateTime day)
         {
            
-            List<DateTime> avaiableAppointments = await _userRepository.GetDayAvaiableAppointments(id, day);
+            List<DateTime?> avaiableAppointments = await _userRepository.GetDayAvaiableAppointments(id, day);
 
             return Ok(avaiableAppointments);
         }

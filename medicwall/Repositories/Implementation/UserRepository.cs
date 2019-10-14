@@ -105,7 +105,7 @@ namespace medicwall.Repositories.Implementation
                 StartTime = StartTime.AddMinutes(minuts);
                 availableAppointmentsList.Add(StartTime);
             }
-
+            
             foreach (var item in occupedAppointments)
             {
                 availableAppointmentsList.RemoveAll(x => x == dt +item.StartTime);

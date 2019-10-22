@@ -29,30 +29,6 @@ namespace medicwall.Repositories.Implementation
             return adress;
         }
 
-        public object Update(int id, Adress adress)
-        {
-            _medicwallContext.Entry(adress).State = EntityState.Modified;
-
-            try
-            {
-                _medicwallContext.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!Exists(id))
-                {
-                    return null;
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return adress;
-
-        }
-
         public async Task<Adress> Update(int id, object obj)
         {
             _medicwallContext.Entry(obj).State = EntityState.Modified;
@@ -72,7 +48,7 @@ namespace medicwall.Repositories.Implementation
 
         public bool Exists(int id)
         {
-            return _medicwallContext.Adress.Any(e => e.Id == id);
+            return _medicwallContext.Adress.Any(a => a.Id == id);
         }
 
         public async Task<Adress> Add(object obj)

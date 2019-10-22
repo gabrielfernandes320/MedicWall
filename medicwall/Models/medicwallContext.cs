@@ -161,7 +161,9 @@ namespace medicwall.Models
 
                 entity.Property(e => e.Height).HasColumnName("height");
 
-                entity.Property(e => e.RegisterDate).HasColumnName("register_date");
+                entity.Property(e => e.RegisterDate)
+                    .HasColumnName("register_date")
+                    .HasColumnType("date");
 
                 entity.Property(e => e.Weight).HasColumnName("weight");
             });
@@ -241,10 +243,6 @@ namespace medicwall.Models
 
                 entity.HasIndex(e => e.Cpf)
                     .HasName("document_cpf_uindex")
-                    .IsUnique();
-
-                entity.HasIndex(e => e.Crm)
-                    .HasName("document_crm_uindex")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Id)

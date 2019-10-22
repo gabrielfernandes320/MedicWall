@@ -9,7 +9,7 @@ namespace medicwall.Models
         public double Weight { get; set; }
         public int Height { get; set; }
         public string Allergies { get; set; }
-        public int RegisterDate { get; set; }
+        public DateTime? RegisterDate { get; set; }
 
         public virtual User User { get; set; }
     }
